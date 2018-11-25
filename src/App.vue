@@ -1,14 +1,16 @@
 <template>
   <div id="app">
     <div id="nav">
+      <h1>My First App with Vuejs</h1>
       <router-link to="/">Home</router-link> |
+      <router-link to="/todo">TODO List</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
