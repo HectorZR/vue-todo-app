@@ -23,7 +23,11 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    pushTask() {
+      return null;
+    },
+  },
 };
 </script>
 
