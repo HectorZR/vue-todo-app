@@ -8,7 +8,6 @@
       <ul>
         <li v-for="(todo, index) in todos" v-bind:key="index">
           {{ todo.text }}
-          {{ index }}
         </li>
       </ul>
     </div>
