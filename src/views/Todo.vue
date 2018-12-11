@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <form id="form-component">
-      <input type="text" name="task" id="">
+    <div id="form-component">
+      <input type="text" name="task" id="" v-model="task">
       <button v-on:click="pushTask">Save Task</button>
-    </form>
+    </div>
     <div class="list-container">
       <ul class="list" >
         <li v-for="(todo, index) in todos" v-bind:key="index">
@@ -18,14 +18,14 @@
 export default {
   data() {
     return {
-      todos: [
-        { text: 'first to render' },
-      ],
+      todos: [],
+      task: '',
     };
   },
   methods: {
     pushTask() {
-      return null;
+      this.todos.push({ text: this.task });
+      this.task = '';
     },
   },
 };
