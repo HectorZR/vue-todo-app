@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div id="form-component">
-      <input type="text" name="task" id="" v-model.trim="task">
+      <input type="text" name="task" id="" v-model.trim="task" placeholder="Register your to-do task">
       <button v-on:click="pushTask">Save Task</button>
     </div>
     <div class="list-container">
