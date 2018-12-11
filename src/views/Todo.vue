@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div id="form-component">
-      <input type="text" name="task" id="" v-model="task">
+      <input type="text" name="task" id="" v-model.trim="task">
       <button v-on:click="pushTask">Save Task</button>
     </div>
     <div class="list-container">
       <ul class="list" >
         <li v-for="(todo, index) in todos" v-bind:key="index">
-          {{ todo.text }}
+          {{ todo.text }} | <button v-on:click="deleteTask(index)">X</button>
         </li>
       </ul>
     </div>
@@ -24,8 +24,13 @@ export default {
   },
   methods: {
     pushTask() {
-      this.todos.push({ text: this.task });
+      this.todos.push({
+        text: this.task,
+      });
       this.task = '';
+    },
+    deleteTask(id) {
+      this.todos.splice(id, 1);
     },
   },
 };
@@ -43,7 +48,7 @@ export default {
   color: white;
 
   .list {
-    background-color: blue;
+    background-color: gray;
     width: 50%;
     list-style-type: none;
   }
