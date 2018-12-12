@@ -4,10 +4,13 @@
       <input type="text" name="task" v-model.trim="task" placeholder="Register your to-do task">
       <button v-on:click="pushTask">Save Task</button>
     </div>
+    <div v-if="showAlert">
+      <p>{{ alert }}</p>
+    </div>
     <div class="list-container">
       <ul class="list" >
         <li v-for="(todo, index) in todos" v-bind:key="index">
-          {{ todo.text }} | <button v-on:click="deleteTask(index)">X</button>
+          {{ todo.text }} <button v-on:click="deleteTask(index)">X</button>
         </li>
       </ul>
     </div>
@@ -20,18 +23,24 @@ export default {
     return {
       todos: [],
       task: '',
+      alert: '',
+      showAlert: false,
     };
   },
   methods: {
     pushTask() {
+      this.showAlert = false;
+
       if (this.task !== '') {
         this.todos.push({
           text: this.task,
         });
+
         this.task = '';
       } else {
-        /* eslint no-alert: "off" */
-        alert('Insert a Task to register it');
+        this.alert = 'Type a task';
+
+        this.showAlert = true;
       }
     },
     deleteTask(id) {
