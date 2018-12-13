@@ -4,13 +4,13 @@
       <input type="text" name="task" v-model.trim="task" placeholder="Register your to-do task">
       <button v-on:click="pushTask">Save Task</button>
     </div>
-    <div v-if="showAlert">
+    <div v-if="showAlert" class="alert">
       <p>{{ alert }}</p>
     </div>
     <div class="list-container">
       <ul class="list" >
-        <li v-for="(todo, index) in todos" v-bind:key="index">
-          {{ todo.text }} <button v-on:click="deleteTask(index)">X</button>
+        <li class="item" v-for="(todo, index) in todos" v-bind:key="index">
+          {{ todo.text }} <button class="task-delete-button" on:click="deleteTask(index)">X</button>
         </li>
       </ul>
     </div>
@@ -51,20 +51,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .container{
-//   display: flex;
-//   align-content: center;
-//   flex-direction: center;
-// }
-.list-container {
-  width: 50%;
-  background-color: green;
-  color: white;
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .list {
-    background-color: gray;
-    width: 50%;
-    list-style-type: none;
+  .list-container {
+    width: 50vw;
+    height: 500px;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .list {
+      background-color: gray;
+      width: 25vw;
+      list-style-type: none;
+
+      .item {
+        display: flex;
+        align-items: flex-end;
+
+        .task-delete-button {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .alert {
+    background-color: yellow;
   }
 }
 </style>
