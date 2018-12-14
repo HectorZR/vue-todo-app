@@ -60,9 +60,14 @@ export default {
   flex-direction: column;
   align-items: center;
 
+  #form-component{
+    margin-bottom: 20px;
+  }
+
   .list-container {
     width: 50vw;
     height: 500px;
+    margin-top: 20px;
     background-color: green;
     color: white;
     display: flex;
@@ -87,6 +92,9 @@ export default {
 
   .alert {
     background-color: yellow;
+    height: 40px;
+    width: 20vw;
+    min-width: 250px;
   }
 }
 </style>
